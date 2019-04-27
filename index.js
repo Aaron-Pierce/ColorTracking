@@ -19,8 +19,21 @@ navigator.mediaDevices.getUserMedia({
     const track = mediaStream.getVideoTracks()[0];
     imageCapture = new ImageCapture(track);
     imageCapture.getPhotoCapabilities().then(result => {
-        width = result.imageWidth.max;
-        height = result.imageHeight.max;
+        console.log(result)
+        console.log(result.imageWidth.max < window.innerWidth)
+        if(result.imageWidth.max < window.innerWidth){
+            width = result.imageWidth.max;
+            height = result.imageHeight.max;
+        }else{
+            console.log("width greater than window innerwidth")
+            let cameraAspectRatio = result.imageHeight.max / result.imageWidth.max;
+            console.log(cameraAspectRatio)
+            width = 0.95 * window.innerWidth;
+            // width = (width<result.imageWidth.min) ? result.imageWidth.min : width;
+            console.log(width)
+            height = cameraAspectRatio * width;
+            // height = (height<result.imageHeight.min) ? result.imageHeight.min : height;
+        }
         document.querySelector('canvas').width = width;
         document.querySelector('canvas').height = height;
         document.body.append(`Max: ${width}, ${height}. Min: ${result.imageWidth.min}, ${result.imageHeight.min}`)
