@@ -36,7 +36,7 @@ navigator.mediaDevices.getUserMedia({
         }
         document.querySelector('canvas').width = width;
         document.querySelector('canvas').height = height;
-        document.body.append(`Max: ${width}, ${height}. Min: ${result.imageWidth.min}, ${result.imageHeight.min}`)
+        document.body.append(`Max: ${result.imageWidth.max}, ${result.imageHeight.max}. Min: ${result.imageWidth.min}, ${result.imageHeight.min}`)
         drawImageToCanvas();
         return imageCapture.getPhotoCapabilities();
     })
