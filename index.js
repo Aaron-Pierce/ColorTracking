@@ -19,8 +19,8 @@ navigator.mediaDevices.getUserMedia({
     const track = mediaStream.getVideoTracks()[0];
     imageCapture = new ImageCapture(track);
     imageCapture.getPhotoCapabilities().then(result => {
-        width = result.imageWidth.min;
-        height = result.imageHeight.min;
+        width = result.imageWidth.max;
+        height = result.imageHeight.max;
         document.querySelector('canvas').width = width;
         document.querySelector('canvas').height = height;
         document.body.append(`${width}, ${height}`)
