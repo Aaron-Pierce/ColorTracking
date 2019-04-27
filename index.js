@@ -23,6 +23,7 @@ navigator.mediaDevices.getUserMedia({
         height = result.imageHeight.min;
         document.querySelector('canvas').width = width;
         document.querySelector('canvas').height = height;
+        document.body.append(`${width}, ${height}`)
         drawImageToCanvas();
         return imageCapture.getPhotoCapabilities();
     })
