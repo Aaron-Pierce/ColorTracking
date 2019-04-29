@@ -67,6 +67,7 @@ let lastPixel = {
     distanceFromRed: 9999,
 };
 
+
 let reddestPixel = {
     x: 0,
     y: 0,
@@ -100,7 +101,7 @@ function drawImageToCanvas() {
                 reddestPixel.x = tx;
                 reddestPixel.y = ty;
             // }
-            let select = inputCtx.getImageData(reddestPixel.x, reddestPixel.y, 1, 1).data;
+            
             reddestPixel.distanceFromRed = dist;
         }
 
