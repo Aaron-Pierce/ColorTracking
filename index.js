@@ -107,6 +107,9 @@ function drawImageToCanvas() {
             reddestPixel.distanceFromRed = dist;
 
             redPixels.push(Object.assign({}, reddestPixel))
+            if(dist === 0){
+                break;
+            }
         }
 
     }
